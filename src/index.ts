@@ -1,9 +1,18 @@
 import express, { Request, Response } from 'express';
+import { AppDataSource } from "./data-source"
+import { User } from "./entity/User";
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+
+AppDataSource.initialize().then(async () => {
+    const result = await AppDataSource.getRepository(User)
+        .createQueryBuilder('user')
+        .getMany()
+    console.log(result)
+}).catch(error => console.log(error))
 
 // Sign Up API
 app.post('/api/signup', (req: Request, res: Response) => {
