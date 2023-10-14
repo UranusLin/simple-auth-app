@@ -68,7 +68,7 @@ Endpoint: /api/profile
 Method: GET
 
 Headers:
-```json
+```
 header 'authorization: Bearer <access_token>'
 ```
 ### Password Reset (Pending)
@@ -76,7 +76,7 @@ Endpoint: /api/reset-password
 
 Method: POST
 Headers:
-```json
+```
 header 'authorization: Bearer <access_token>'
 ```
 Data:
